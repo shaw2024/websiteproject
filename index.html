@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .portfolio-image {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-image:active {
+            transform: scale(0.9);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .lightbox img.enlarge {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Modern and Creative Web Design Services</p>
+    </section>
+    
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I am a professional web designer creating beautiful and functional websites.</p>
+        <p>With five years of experience in web design and development, I have honed my skills in creating visually appealing, user-friendly, and highly functional websites. My expertise spans front-end and back-end development, ensuring seamless integration of design and functionality. I am certified in HTML, CSS, JavaScript, and programming, allowing me to craft responsive layouts, optimize performance, and implement dynamic features. I am passionate about leveraging modern web technologies to build engaging digital experiences that meet both aesthetic and technical standards. Whether designing from scratch or enhancing existing projects, I focus on delivering high-quality solutions tailored to client needs.</p>
+    </section>
+    
+    <section id="portfolio" class="portfolio">
+        <h2>My Work</h2>
+        <div class="scroller">
+            <img src="freepik__upload__1490.png" alt="Project 1" class="portfolio-image" onclick="openLightbox(this)">
+            <img src="pic4.png" alt="Project 2" class="portfolio-image" onclick="openLightbox(this)">
+            <img src="pic3.png" alt="Project 3" class="portfolio-image" onclick="openLightbox(this)">
+        </div>
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="Enlarged Image">
+        </div>
+    </section>
+    
+    
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form action="submit_form.php" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <script>
+        function openLightbox(img) {
+            let lightbox = document.getElementById('lightbox');
+            let lightboxImg = document.getElementById('lightbox-img');
+            lightbox.style.display = 'flex';
+            lightboxImg.src = img.src;
+            setTimeout(() => {
+                lightboxImg.classList.add('enlarge');
+            }, 100);
+        }
+        
+        function closeLightbox() {
+            let lightbox = document.getElementById('lightbox');
+            let lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.classList.remove('enlarge');
+            setTimeout(() => {
+                lightbox.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</body>
+</html>
