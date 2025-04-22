@@ -35,6 +35,15 @@
         .lightbox img.enlarge {
             transform: scale(1.1);
         }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -67,12 +76,11 @@
             <img src="pic4.png" alt="Project 2" class="portfolio-image" onclick="openLightbox(this)">
             <img src="pic3.png" alt="Project 3" class="portfolio-image" onclick="openLightbox(this)">
         </div>
-        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-            <span class="close" onclick="closeLightbox()">&times;</span>
-            <img id="lightbox-img" src="" alt="Enlarged Image">
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()" role="dialog" aria-modal="true">
+            <span class="close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</span>
+            <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Enlarged Image">
         </div>
     </section>
-    
     
     <section id="contact" class="contact">
         <h2>Contact Me</h2>
@@ -86,21 +94,22 @@
     
     <script>
         function openLightbox(img) {
-            let lightbox = document.getElementById('lightbox');
-            let lightboxImg = document.getElementById('lightbox-img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
             lightbox.style.display = 'flex';
             lightboxImg.src = img.src;
             setTimeout(() => {
                 lightboxImg.classList.add('enlarge');
             }, 100);
         }
-        
+
         function closeLightbox() {
-            let lightbox = document.getElementById('lightbox');
-            let lightboxImg = document.getElementById('lightbox-img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
             lightboxImg.classList.remove('enlarge');
             setTimeout(() => {
                 lightbox.style.display = 'none';
+                lightboxImg.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
             }, 200);
         }
     </script>
