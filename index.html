@@ -42,6 +42,8 @@
             right: 20px;
             color: white;
             font-size: 2rem;
+            background: none;
+            border: none;
             cursor: pointer;
         }
     </style>
@@ -57,18 +59,18 @@
             </ul>
         </nav>
     </header>
-    
+
     <section id="home" class="hero">
         <h1>Welcome to My Portfolio</h1>
         <p>Modern and Creative Web Design Services</p>
     </section>
-    
+
     <section id="about" class="about">
         <h2>About Me</h2>
         <p>I am a professional web designer creating beautiful and functional websites.</p>
         <p>With five years of experience in web design and development, I have honed my skills in creating visually appealing, user-friendly, and highly functional websites. My expertise spans front-end and back-end development, ensuring seamless integration of design and functionality. I am certified in HTML, CSS, JavaScript, and programming, allowing me to craft responsive layouts, optimize performance, and implement dynamic features. I am passionate about leveraging modern web technologies to build engaging digital experiences that meet both aesthetic and technical standards. Whether designing from scratch or enhancing existing projects, I focus on delivering high-quality solutions tailored to client needs.</p>
     </section>
-    
+
     <section id="portfolio" class="portfolio">
         <h2>My Work</h2>
         <div class="scroller">
@@ -77,11 +79,11 @@
             <img src="pic3.png" alt="Project 3" class="portfolio-image" onclick="openLightbox(this)">
         </div>
         <div id="lightbox" class="lightbox" onclick="closeLightbox()" role="dialog" aria-modal="true">
-            <span class="close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</span>
+            <button class="close" onclick="closeLightbox()" aria-label="Close lightbox" type="button">&times;</button>
             <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Enlarged Image">
         </div>
     </section>
-    
+
     <section id="contact" class="contact">
         <h2>Contact Me</h2>
         <form action="submit_form.php" method="post">
@@ -91,7 +93,7 @@
             <button type="submit">Send Message</button>
         </form>
     </section>
-    
+
     <script>
         function openLightbox(img) {
             const lightbox = document.getElementById('lightbox');
@@ -115,3 +117,8 @@
     </script>
 </body>
 </html>
+
+
+      
+           
+           
